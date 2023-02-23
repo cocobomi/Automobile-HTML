@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<!--
+    Verti by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>DongHyeon</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <style type="text/css" media="screen">
+        body {
+           
+            
+         
+        }
+
+        #container {
+            width: 100%;
+            height: 500px;
+            -webkit-perspective: 800; /* For compatibility with iPhone 3.0, we leave off the units here */
+            -webkit-perspective-origin: 50% 225px;
+            margin-left: 550px;
+            margin-top: -320px;
+        }
+
+        #stage {
+            width: 100%;
+            height: 100%;
+            -webkit-transition: -webkit-transform 2s;
+            -webkit-transform-style: preserve-3d;
+        }
+
+        #shape {
+            position: relative;
+            top: 60px;
+            margin: 0 auto;
+            height: 200px;
+            width: 200px;
+            -webkit-transform-style: preserve-3d;
+        }
+
+        
+
+        .plane {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            border: 1px solid white;
+            -webkit-border-radius: 12px;
+            -webkit-box-sizing: border-box;
+            text-align: center;
+            font-family: Times, serif;
+            font-size: 124pt;
+            color: black;
+            background-color: rgba(255, 255, 255, 0.6);
+            -webkit-transition: -webkit-transform 2s, opacity 2s;
+            -webkit-backface-visibility: hidden;
+        }
+
+        #shape.backfaces .plane {
+            -webkit-backface-visibility: visible;
+        }
+
+        #shape {
+            -webkit-animation: spin 8s infinite linear;
+        }
+
+        @-webkit-keyframes spin {
+            from {
+                -webkit-transform: rotateY(0);
+            }
+
+            to {
+                -webkit-transform: rotateY(-360deg);
+            }
+        }
+
+        /* ---------- cube styles ------------- */
+        .cube > .one {
+            opacity: 0.5;
+            -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateX(90deg) translateZ(100px);
+        }
+
+        .cube > .two {
+            opacity: 0.5;
+            -webkit-transform: scale3d(1.2, 1.2, 1.2) translateZ(100px);
+        }
+
+        .cube > .three {
+            opacity: 0.5;
+            -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(90deg) translateZ(100px);
+        }
+
+        .cube > .four {
+            opacity: 0.5;
+            -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(180deg) translateZ(100px);
+        }
+
+        .cube > .five {
+            opacity: 0.5;
+            -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(-90deg) translateZ(100px);
+        }
+
+        .cube > .six {
+            opacity: 0.5;
+            -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateX(-90deg) translateZ(100px) rotate(180deg);
+        }
+
+
+        .cube > .seven {
+            -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateX(90deg) translateZ(100px) rotate(180deg);
+        }
+
+        .cube > .eight {
+            -webkit-transform: scale3d(0.8, 0.8, 0.8) translateZ(100px);
+        }
+
+        .cube > .nine {
+            -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateY(90deg) translateZ(100px);
+        }
+
+        .cube > .ten {
+            -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateY(180deg) translateZ(100px);
+        }
+
+        .cube > .eleven {
+            -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateY(-90deg) translateZ(100px);
+        }
+
+        .cube > .twelve {
+            -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateX(-90deg) translateZ(100px);
+        }
+
+        /* ---------- ring styles ------------- */
+        .ring > .one {
+            -webkit-transform: translateZ(380px);
+        }
+
+        .ring > .two {
+            -webkit-transform: rotateY(30deg) translateZ(380px);
+        }
+
+        .ring > .three {
+            -webkit-transform: rotateY(60deg) translateZ(380px);
+        }
+
+        .ring > .four {
+            -webkit-transform: rotateY(90deg) translateZ(380px);
+        }
+
+        .ring > .five {
+            -webkit-transform: rotateY(120deg) translateZ(380px);
+        }
+
+        .ring > .six {
+            -webkit-transform: rotateY(150deg) translateZ(380px);
+        }
+
+        .ring > .seven {
+            -webkit-transform: rotateY(180deg) translateZ(380px);
+        }
+
+        .ring > .eight {
+            -webkit-transform: rotateY(210deg) translateZ(380px);
+        }
+
+        .ring > .nine {
+            -webkit-transform: rotateY(-120deg) translateZ(380px);
+        }
+
+        .ring > .ten {
+            -webkit-transform: rotateY(-90deg) translateZ(380px);
+        }
+
+        .ring > .eleven {
+            -webkit-transform: rotateY(300deg) translateZ(380px);
+        }
+
+        .ring > .twelve {
+            -webkit-transform: rotateY(330deg) translateZ(380px);
+        }
+
+        .controls {
+            width: 80%;
+            margin: 0 auto;
+            padding: 5px 20px;
+            -webkit-border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+           
+        }
+
+            .controls > div {
+                margin: 10px;
+                
+            }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+    function hasClassName(inElement, inClassName)
+    {
+        var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+        return regExp.test(inElement.className);
+    }
+
+    function addClassName(inElement, inClassName)
+    {
+        if (!hasClassName(inElement, inClassName))
+            inElement.className = [inElement.className, inClassName].join(' ');
+    }
+
+    function removeClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName)) {
+            var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+            var curClasses = inElement.className;
+            inElement.className = curClasses.replace(regExp, ' ');
+        }
+    }
+
+    function toggleClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName))
+            removeClassName(inElement, inClassName);
+        else
+            addClassName(inElement, inClassName);
+    }
+
+    function toggleShape()
+    {
+      var shape = document.getElementById('shape');
+      if (hasClassName(shape, 'ring')) {
+        removeClassName(shape, 'ring');
+        addClassName(shape, 'cube');
+      } else {
+        removeClassName(shape, 'cube');
+        addClassName(shape, 'ring');
+      }
+
+      // Move the ring back in Z so it's not so in-your-face.
+      var stage = document.getElementById('stage');
+      if (hasClassName(shape, 'ring'))
+        stage.style.webkitTransform = 'translateZ(-200px)';
+      else
+        stage.style.webkitTransform = '';
+    }
+
+    function toggleBackfaces()
+    {
+      var backfacesVisible = document.getElementById('backfaces').checked;
+      var shape = document.getElementById('shape');
+      if (backfacesVisible)
+        addClassName(shape, 'backfaces');
+      else
+        removeClassName(shape, 'backfaces');
+    }
+    </script>
+
+</head>
+<body class="no-sidebar">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header-wrapper">
+            <header id="header" class="container">
+
+                <!-- Logo -->
+                <div id="logo">
+                    <h1><a href="../index/index.html">Automobile</a></h1>
+                    <span>by DongHyeon</span>
+                </div>
+
+                <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        <li><a href="../index/index.html">소개</a></li>
+                        <li><a href="../news-main/NEWS.html">소식</a></li>
+                        <li><a href="../review-main/REVIEWS.html">리뷰</a></li>
+                        <li>
+                            <a href="../video/VIDEO.html">동영상</a>
+                            <ul>
+                                <li><a href="../video/VIDEO.html">모두보기</a></li>
+                                <li>
+                                    <a href="#">세단</a>
+                                    <ul>
+                                        <li><a href="../video-list/BMW.html">BMW</a></li>
+                                        <li><a href="../video-list/Audi.html">Audi</a></li>
+                                        <li><a href="../video-list/Benz.html">Benz</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">스포츠카</a>
+                                    <ul>
+                                        <li><a href="../video-list/Lamborghini.html">Lamborghini</a></li>
+                                        <li><a href="../video-list/Ferarri.html">Ferarri</a></li>
+                                        <li><a href="../video-list/Porsche.html">Porsche</a></li>
+                                        <li><a href="../video-list/Maserati.html">Maserati</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="../video-list/hyper.html">하이퍼카</a>
+                                </li>
+                                <li>
+                                    <a href="../video-list/concept.html">컨셉카</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="current"><a href="../contact-main/CONTACT.html">연락처</a></li>
+                    </ul>
+                </nav>
+
+            </header>
+        </div>
+        <!-- Banner -->
+        <div id="banner-wrapper">
+
+            <div id="banner" class="box container">
+
+                <section class="box feature">
+
+                    <div class="row">
+                        
+                        <div class="4u 12u(medium)">
+                            <h5>Automobile</h5>
+                            <h3>maker</h3>
+                            <br />
+                          
+                            
+                            <h6>.  원동현</h6>
+                            <h6>.  우석대학교 컴퓨터공학과</h6>
+                            <h6>.  010-9525-4472</h6>
+                            <h6>.  ehdgus0424@naver.com</h6>
+
+                            
+                            <div id="container">
+                                <div id="stage">
+                                   
+                                    <div id="shape" class="cube backfaces">
+                                        
+
+
+                                        <div><input type="checkbox" id="backfaces" onclick="toggleBackfaces()" checked ><label for="backfaces">뒷면 보기</label></div>
+                                        <div><button onclick="toggleShape()">모양 변환</button></div>
+
+                                       
+                                        <br/>
+                                        <div class="plane one"><img src="../../images/index/img1.jpg" width="200" height="200" /></div>
+                                        <div class="plane two"><img src="../../images/index/img2.jpg" width="200" height="200" /></div>
+                                        <div class="plane three"><img src="../../images/index/img3.jpg" width="200" height="200" /></div>
+                                        <div class="plane four"><img src="../../images/index/img4.jpg" width="200" height="200" /></div>
+                                        <div class="plane five"><img src="../../images/index/img5.jpg" width="200" height="200" /></div>
+                                        <div class="plane six"><img src="../../images/index/img6.jpg" width="200" height="200" /></div>
+                                        <div class="plane seven"><img src="../../images/index/img7.jpg" width="200" height="200" /></div>
+                                        <div class="plane eight"><img src="../../images/index/img10.jpg" width="200" height="200" /></div>
+                                        <div class="plane nine"><img src="../../images/index/img11.jpg" width="200" height="200" /></div>
+                                        <div class="plane ten"><img src="../../images/index/img12.jpg" width="200" height="200" /></div>
+                                        <div class="plane eleven"><img src="../../images/index/img13.jpg" width="200" height="200" /></div>
+                                        <div class="plane twelve"><img src="../../images/index/img14.jpg" width="200" height="200" /></div>
+                                    </div>
+                                  
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            </di>
+                        
+                     
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+
+
+        <br>
+
+        <!-- Footer -->
+        <div id="footer-wrapper">
+            <footer id="footer" class="container">
+                <div class="row">
+                    <div class="3u 6u(medium) 12u$(small)">
+
+                        <!-- Links -->
+                        <section class="widget links">
+                            <h5><a href="../index/index.html">Automobile</a></h5>
+
+                            </ul>
+                        </section>
+
+                    </div>
+                    <div class="3u 6u$(medium) 12u$(small)">
+
+                        <!-- Links -->
+                        <section class="widget links">
+                            <h4>빠른 메뉴</h4>
+                            <ul class="style2">
+                                <li>
+                                    <a href="../survey/text.html">설문조사</a>
+                                </li>
+                                <li>
+                                    <a href="../video/VIDEO.html">동영상</a>
+                                </li>
+
+                            </ul>
+                        </section>
+
+                    </div>
+                    <div class="3u 6u(medium) 12u$(small)">
+
+                        <!-- Links -->
+                        <section class="widget links">
+                            <h4>관련 홈페이지</h4>
+                            <ul class="style2">
+                                <li>
+                                    <a href="http://www.bobaedream.co.kr/"><img src="../../images/banner/bobe.png" width="220" height="30" /></a>
+                                </li>
+
+                                <li>
+                                    <a href="http://www.carmedia.co.kr/"><img src="../../images/banner/media.jpg" width="220" height="30" /></a>
+                                </li>
+
+
+                            </ul>
+                        </section>
+
+                    </div>
+                    <div class="3u 6u$(medium) 12u$(small)">
+
+                        <!-- Contact -->
+                        <section class="widget contact last">
+                            <h4>Automobile SNS</h4>
+                            <ul>
+
+                                <li>
+                                    <a href="https://twitter.com/" class="icon fa-twitter">
+                                        <span class="label">Twitter</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/" class="icon fa-facebook">
+                                        <span class="label">Facebook</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/" class="icon fa-instagram">
+                                        <span class="label">Instagram</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/" class="icon fa-youtube">
+                                        <span class="label">Youtube</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </section>
+
+                    </div>
+                </div>
+
+            </footer>
+        </div>
+
+    </div>
+    <!-- Scripts -->
+    
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../../assets/js/skel.min.js"></script>
+    <script src="../../assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="../../assets/js/main.js"></script>
+
+</body>
+</html>
